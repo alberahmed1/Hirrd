@@ -19,20 +19,20 @@ const Header = () => {
 
   }, [search])
 
-
   const handleOverlayClick = (e) => {
-    if (e.target == e.currentTarget) {
+    if (e.target === e.currentTarget) {
       setShowSignIn(false)
       setSearch({})
     }
   }
+
   return (
     <>
-      <nav className='py-4 flex w-full justify-between  items-center'>
+      <nav className='py-4 flex w-full justify-between items-center'>
         <Link>
           <img src="/logo.png" alt="hirrd" className='h-20' />
         </Link>
-        <div className='flex md:gap-8 gap-3 '>
+        <div className='flex md:gap-8 gap-3'>
           <SignedOut>
             <Button onClick={() => setShowSignIn(true)} variant="outline">Login</Button>
           </SignedOut>
@@ -41,14 +41,13 @@ const Header = () => {
               <Link to="./post-job">
                 <Button
                   variant="destructive"
-                  className="rounded-full "
+                  className="rounded-full"
                 >
                   <PenBox size={20} className="mr-2" />
                   Post a Job
                 </Button>
-
-
-              </Link>)}
+              </Link>
+            )}
             <UserButton appearance={{
               elements: {
                 avatarBox: "w-10 h-10"
@@ -70,9 +69,13 @@ const Header = () => {
           </SignedIn>
         </div>
       </nav>
-      {ShowSignIn && <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50' onClick={handleOverlayClick}>
-        <SignIn signUpForceRedirectUrl='/onboarding' fallbackRedirectUrl='/onboarding' />
-      </div>}
+
+      {/* Show the login/signup modal */}
+      {ShowSignIn && (
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50' onClick={handleOverlayClick}>
+          <SignIn signUpForceRedirectUrl='/onboarding' fallbackRedirectUrl='/onboarding' />
+        </div>
+      )}
     </>
   )
 }
