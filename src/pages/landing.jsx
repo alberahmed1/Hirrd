@@ -18,10 +18,10 @@ const LandingPage = () => {
       </section>
       <div className="flex gap-6 justify-center">
         <Link to='/jobs'>
-          <Button variant="blue" size="xl">Find Jobs</Button>
+          <Button variant="blue" className='sm:w-48 w-36' size="xl">Find Jobs</Button>
         </Link>
         <Link to='/post-job'>
-          <Button variant="destructive" size="xl">Post a Job</Button>
+          <Button variant="destructive" className='sm:w-48 w-36' size="xl">Post a Job</Button>
         </Link>
       </div>
       <Carousel plugins={[Autoplay({ delay: 2000 })]}
