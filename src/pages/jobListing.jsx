@@ -109,7 +109,7 @@ const JobListing = () => {
 
       {loadingJobs === false && (
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {jobs.length ? (
+          {jobs.length > 0 ? (
             jobs.slice(page * 6 - 6, page * 6).map((job) => (
               <JobCard key={job.id} job={job} savedInit={job?.saved?.length > 0} />
             ))
